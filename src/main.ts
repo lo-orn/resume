@@ -3,14 +3,19 @@ import emailjs from "@emailjs/browser";
 
 const title = document.getElementById("title");
 const role = document.getElementById("role") as HTMLHeadingElement | null;
+const app = document.getElementById("app") as HTMLDivElement | null;
 
 const workGifDiv = document.getElementById("workGifDiv") as HTMLDivElement | null;
 const aboutMeDiv = document.getElementById("aboutMeDiv") as HTMLDivElement | null;
 const mainSection = document.getElementById("mainSection") as HTMLDivElement | null;
 const contactMe = document.getElementById("contactMe") as HTMLFormElement
+const linkedin = document.getElementById("linkedin") as HTMLElement | null
+const github = document.getElementById("github") as HTMLElement | null
+const phone = document.getElementById("phone") as HTMLParagraphElement
 
-const MOVE_TITLE_AFTER_MS = 1500;
-const ROLE_INTERVAL_MS = 2000;
+ 
+const MOVE_TITLE_AFTER_MS = 1000;
+const ROLE_INTERVAL_MS = 1500;
 const FADE_MS = 500;
 
 let roleIntervalId: number | null = null;
@@ -51,8 +56,11 @@ function startRoleLoop() {
 }
 
 function intro() {
-  setTimeout(moveTitleTopLeft, MOVE_TITLE_AFTER_MS);
-  startRoleLoop();
+  setTimeout(() => {
+    moveTitleTopLeft();
+    startRoleLoop();              // ✅ startar HÄR istället
+    role?.classList.remove("opacity-0"); // fade in
+  }, MOVE_TITLE_AFTER_MS);
 }
 
 function finalSlide() {
@@ -64,7 +72,7 @@ function finalSlide() {
   role.addEventListener("click", () => {
     console.log("CLICK på role!");
 
-    // stoppa loopen innan vi tar bort role
+    
     if (roleIntervalId !== null) {
       clearInterval(roleIntervalId);
       roleIntervalId = null;
@@ -98,7 +106,7 @@ function finalSlide() {
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
       "I'm a conceptual art director with years of experience working across fashion, lifestyle, and tech. I'm currently transitioning into a more technical role and studying frontend development, where I combine my creative background with a growing technical skill set. I work with HTML, CSS, JavaScript, SCSS, and TypeScript, and have a particular interest for Tailwind.";
-    aboutMeText.className = "text-left text-white max-w-md leading-4 mt-6 text-m font-medium tracking-tight";
+    aboutMeText.className = "text-justify text-white max-w-md leading-5 mt-6 text-m font-medium tracking-tight";
 
     aboutMeDiv.innerHTML = "";
     aboutMeDiv.appendChild(aboutMeText);
@@ -125,10 +133,16 @@ function finalSlide() {
       
       
     })
+github?.classList.remove("hidden")
+linkedin?.classList.remove("hidden")
+phone.classList.remove("hidden")
 
+
+ 
     mainSection.appendChild(workGifDiv);
     mainSection.appendChild(aboutMeDiv);
     mainSection.appendChild(contactMe)
+    
   });
 }
 
