@@ -3,7 +3,6 @@ import emailjs from "@emailjs/browser";
 
 const title = document.getElementById("title") as HTMLHeadElement;
 const role = document.getElementById("role") as HTMLHeadingElement | null;
-const app = document.getElementById("app") as HTMLDivElement 
 const newTitle = document.getElementById("newTitle") as HTMLHeadElement;
 
 const workGifDiv = document.getElementById("workGifDiv") as HTMLDivElement | null;
