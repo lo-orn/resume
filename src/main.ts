@@ -12,6 +12,7 @@ const contactMe = document.getElementById("contactMe") as HTMLFormElement
 const linkedin = document.getElementById("linkedin") as HTMLElement | null
 const github = document.getElementById("github") as HTMLElement | null
 const phone = document.getElementById("phone") as HTMLParagraphElement
+const roleHint = document.getElementById("roleHint");
 
  
  
@@ -55,7 +56,7 @@ function intro() {
    
     startRoleLoop();              
     role?.classList.remove("opacity-0"); // fade in
-    const roleHint = document.getElementById("roleHint");
+   
 
     roleHint?.classList.remove("opacity-0");
   }, MOVE_TITLE_AFTER_MS);
@@ -67,6 +68,8 @@ function finalSlide() {
     return;
   }
 
+
+
   role.addEventListener("click", () => {
     console.log("CLICK på role!");
 
@@ -77,6 +80,7 @@ function finalSlide() {
     }
 
     role.remove();
+ roleHint?.remove();
 
     if (!workGifDiv) {
       console.log("workGifDiv saknas");
