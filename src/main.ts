@@ -40,6 +40,7 @@ function startRoleLoop() {
 
       role.textContent = roles[index];
       role.classList.remove("opacity-0");
+     
     }, FADE_MS);
   }, ROLE_INTERVAL_MS);
 }
@@ -54,6 +55,9 @@ function intro() {
    
     startRoleLoop();              
     role?.classList.remove("opacity-0"); // fade in
+    const roleHint = document.getElementById("roleHint");
+
+    roleHint?.classList.remove("opacity-0");
   }, MOVE_TITLE_AFTER_MS);
 }
 
