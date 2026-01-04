@@ -89,15 +89,15 @@ function finalSlide() {
 
     const navMenu = document.getElementById("navMenu") as HTMLMenuElement
     navMenu.classList.remove("hidden")
-    navMenu.className = "flex flex-wrap gap-5 text-white lg:ml-auto"
+    navMenu.className = "flex flex-wrap pl-2 gap-3 items-center text-white lg:ml-auto"
 
     const workGif = document.createElement("img");
     workGif.src = "/ezgif-13c38f509407bf.gif";
-    workGif.className = "w-full  md:justify-start"  ;
+    workGif.className = "block w-full h-auto"  ;
     workGif.onload = () => console.log("GIF laddad");
     workGif.onerror = () => console.log("GIF kunde inte laddas");
 
-    workGifDiv.className = "flex flex-row w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-[360px] h-auto";
+    workGifDiv.className = "w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] mx-auto lg:mx-0";
     ;
     ;
     workGifDiv.innerHTML = "";
@@ -178,7 +178,7 @@ function openModal(title:any, contentHtml:any) {
 }
 
 const projectsHtml = `
-  <div class="space-y-6">
+  <div class="mt-3 flex flex-wrap gap-3">
     <div class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
       <h3 class="text-xl font-extrabold">Todo List</h3>
       <div class="mt-3 flex gap-4">
