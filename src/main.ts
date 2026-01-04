@@ -1,9 +1,10 @@
 import "./style.css";
 import emailjs from "@emailjs/browser";
 
-const title = document.getElementById("title");
+const title = document.getElementById("title") as HTMLHeadElement;
 const role = document.getElementById("role") as HTMLHeadingElement | null;
-const app = document.getElementById("app") as HTMLDivElement | null;
+const app = document.getElementById("app") as HTMLDivElement 
+const newTitle = document.getElementById("newTitle") as HTMLHeadElement;
 
 const workGifDiv = document.getElementById("workGifDiv") as HTMLDivElement | null;
 const aboutMeDiv = document.getElementById("aboutMeDiv") as HTMLDivElement | null;
@@ -14,6 +15,7 @@ const github = document.getElementById("github") as HTMLElement | null
 const phone = document.getElementById("phone") as HTMLParagraphElement
 
  
+ 
 const MOVE_TITLE_AFTER_MS = 1000;
 const ROLE_INTERVAL_MS = 1500;
 const FADE_MS = 500;
@@ -21,18 +23,6 @@ const FADE_MS = 500;
 let roleIntervalId: number | null = null;
 
 
-
-function moveTitleTopLeft() {
-  if (!title) return;
-
-  title.remove();
-
-  const newTitle = document.createElement("h2");
-  newTitle.textContent = "Lo Eklöf Örnestål";
-  newTitle.className =
-    "absolute top-0 left-0 m-10 text-3xl font-medium text-white";
-  document.body.appendChild(newTitle);
-}
 
 function startRoleLoop() {
   if (!role) return;
@@ -55,10 +45,15 @@ function startRoleLoop() {
   }, ROLE_INTERVAL_MS);
 }
 
+
 function intro() {
   setTimeout(() => {
-    moveTitleTopLeft();
-    startRoleLoop();              // ✅ startar HÄR istället
+    title.classList.add("hidden")
+    newTitle.classList.remove("hidden")
+  
+
+   
+    startRoleLoop();              
     role?.classList.remove("opacity-0"); // fade in
   }, MOVE_TITLE_AFTER_MS);
 }
@@ -93,20 +88,31 @@ function finalSlide() {
       return;
     }
 
+    const navMenu = document.getElementById("navMenu") as HTMLMenuElement
+    navMenu.classList.remove("hidden")
+    navMenu.className = "flex flex-wrap gap-5 text-white lg:ml-auto"
+
     const workGif = document.createElement("img");
     workGif.src = "/ezgif-13c38f509407bf.gif";
-    workGif.className = "w-80 block";
+    workGif.className = "w-full  md:justify-start"  ;
     workGif.onload = () => console.log("GIF laddad");
     workGif.onerror = () => console.log("GIF kunde inte laddas");
 
-    workGifDiv.className = "flex justify-start items-start pl-10 pt-10";
+    workGifDiv.className = "flex flex-row w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] lg:max-w-[360px] h-auto";
+    ;
+    ;
     workGifDiv.innerHTML = "";
     workGifDiv.appendChild(workGif);
+
+    
 
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
       "I'm a conceptual art director with years of experience working across fashion, lifestyle, and tech. I'm currently transitioning into a more technical role and studying frontend development, where I combine my creative background with a growing technical skill set. I work with HTML, CSS, JavaScript, SCSS, and TypeScript, and have a particular interest for Tailwind.";
-    aboutMeText.className = "text-justify text-white max-w-md leading-5 mt-6 text-m font-medium tracking-tight";
+    aboutMeText.className =   "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
+
+
+    ;
 
     aboutMeDiv.innerHTML = "";
     aboutMeDiv.appendChild(aboutMeText);
@@ -145,6 +151,102 @@ phone.classList.remove("hidden")
     
   });
 }
+
+function openModal(title:any, contentHtml:any) {
+  const overlay = document.createElement("div");
+  overlay.className = "fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4";
+  
+  const modal = document.createElement("div")
+  modal.className = "relative w-full max-w-xl bg-red-600 border-4 border-black shadow-[10px_10px_0_0_#000]";
+
+  modal.innerHTML = `
+    <button class="absolute top-4 right-4 w-10 h-10 bg-white border-4 border-black font-black">✕</button>
+    <div class="p-6 text-black">
+      <h2 class="text-4xl font-extrabold mb-4">${title}</h2>
+      ${contentHtml}
+    </div>
+  `
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+  const close = () => overlay.remove();
+
+  modal.querySelector("button")?.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if(e.target === overlay) close(); 
+  });
+
+
+}
+
+const projectsHtml = `
+  <div class="space-y-6">
+    <div class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <h3 class="text-xl font-extrabold">Todo List</h3>
+      <div class="mt-3 flex gap-4">
+        <a href="https://lo-orn-todos.netlify.app/" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          Live
+        </a>
+        <a href="https://github.com/lo-orn/the-todos" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <h3 class="text-xl font-extrabold">Weather App</h3>
+      <div class="mt-3 flex gap-4">
+        <a href="https://lo-weather.netlify.app/" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          Live
+        </a>
+        <a href="https://github.com/lo-orn/weather_app" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+`;
+
+const workHtml = `
+  <ul class="space-y-4">
+    <li class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <p class="font-extrabold">Art Director – Sneakersnstuff</p>
+      <p class="text-sm font-bold">2019–2022</p>
+    </li>
+    <li class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <p class="font-extrabold">Art Director – Marshall Group</p>
+      <p class="text-sm font-bold">2022–2025</p>
+    </li>
+  </ul>
+`;
+
+const educationHtml = `
+  <ul class="space-y-4">
+    <li class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <p class="font-extrabold">BA – Art Direction</p>
+      <p class="text-sm font-bold">Westerdals Oslo ACT (2015–2018)</p>
+    </li>
+    <li class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <p class="font-extrabold">HVE – Frontend Developer</p>
+      <p class="text-sm font-bold">Westerdals Oslo ACT (2025–2027)</p>
+    </li>
+  </ul>
+`;
+
+document.getElementById("projectsDiv")?.addEventListener("click", () => {
+  openModal("PROJECTS", projectsHtml)
+})
+document.getElementById("workDiv")?.addEventListener("click", () => {
+  openModal("WORK EXPERIENCE", workHtml);
+});
+
+document.getElementById("educationDiv")?.addEventListener("click", () => {
+  openModal("EDUCATION", educationHtml);
+});
+
 
 
 finalSlide();

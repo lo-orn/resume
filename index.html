@@ -8,40 +8,53 @@
   </head>
   <body class="bg-black">
     <div id="app">
-      <header>
-        <h1
-          id="title"
-          class="mx-auto align-center text-white font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-9xl"
+      <h1
+        id="title"
+        class="flex items-center justify-center text-white font-extrabold text-4xl sm:text-5xl md:text-7xl lg:text-9xl mx-auto"
+      >
+        Lo Eklöf Örnestål
+      </h1>
+      <header
+        id="header"
+        class="bg-black fixed top-0 left-0 z-50 w-full flex flex-row justify-between px-4 sm:px-8 md:px-10 py-6"
+      >
+        <h2
+          id="newTitle"
+          class="hidden text-2xl sm:text-3xl font-medium text-white leading-none"
         >
           Lo Eklöf Örnestål
-        </h1>
+        </h2>
+
+        <nav
+          id="navMenu"
+          class="hidden flex gap-6 items-center hover:cursor-pointer"
+        >
+          <div id="projectsDiv">
+            <h2 class="hover:cursor-pointer">Projects</h2>
+          </div>
+          <div id="educationDiv" class="">
+            <h2 class="hover:cursor-pointer">Education</h2>
+          </div>
+          <div id="workDiv" class="">
+            <h2 class="hover:cursor-pointer">Work</h2>
+          </div>
+        </nav>
       </header>
-      <div id="roleDiv" class="cursor-pointer">
-        <h3
-          id="role"
-          class="cursor-pointer text-white font-extrabold text-3xl sm:text-4xl md:text-5xl opacity-0 transition-opacity duration-500"
-        ></h3>
-      </div>
+
       <main>
-        <section id="experience" class="flex justify-between">
-          <div id="work" class="hidden">
-            <h3>Work</h3>
-            <p>Art Director – Sneakersnstuff (2019-2022)</p>
-            <p>Art Director – Marshall Group (2022-2025)</p>
-          </div>
-          <div id="education" class="hidden">
-            <h3>Education</h3>
-            <p>BA - Art Direction – Westerdals Oslo ACT (2015-2018)</p>
-            <p>HVE - Frontend Developer – Westerdals Oslo ACT (2025-2027)</p>
-          </div>
-        </section>
+        <div id="roleDiv" class="flex items-center justify-center">
+          <h3
+            id="role"
+            class="hover:cursor-pointer text-white font-extrabold text-3xl sm:text-4xl md:text-5xl opacity-0 transition-opacity duration-500"
+          ></h3>
+        </div>
         <section
           id="mainSection"
-          class="flex flex-row items-center justify-between gap-10"
+          class="w-full px-4 sm:px-8 md:px-10 pt-10 flex flex-col lg:flex-row gap-10 items-center"
         >
           <div id="workGifDiv"></div>
           <div id="aboutMeDiv"></div>
-          <div id="form" class="">
+          <div id="form">
             <form
               class="hidden mt-10 space-y-10 relative w-[420px] border-2 border-white p-8 text-white"
               id="contactMe"
