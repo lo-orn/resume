@@ -234,7 +234,7 @@ const educationHtml = `
     </li>
     <li class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
       <p class="font-extrabold">HVE – Frontend Developer</p>
-      <p class="text-sm font-bold">Westerdals Oslo ACT (2025–2027)</p>
+      <p class="text-sm font-bold">Medieinstitutet (2025–2027)</p>
     </li>
   </ul>
 `;
