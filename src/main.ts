@@ -89,7 +89,7 @@ function finalSlide() {
 
     const navMenu = document.getElementById("navMenu") as HTMLMenuElement
     navMenu.classList.remove("hidden")
-    navMenu.className = "flex flex-wrap pl-2 gap-3 items-center text-white lg:ml-auto"
+    navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto"
 
     const workGif = document.createElement("img");
     workGif.src = "/ezgif-13c38f509407bf.gif";
