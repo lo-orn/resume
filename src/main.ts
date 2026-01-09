@@ -115,7 +115,8 @@ function finalSlide() {
 
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
-      "I'm a conceptual art director with years of experience working across fashion, lifestyle, and tech. I'm currently transitioning into a more technical role and studying frontend development, where I combine my creative background with a growing technical skill set. I work with HTML, CSS, JavaScript, SCSS, and TypeScript, and have a particular interest for Tailwind.";
+      "I'm a conceptual art director turned frontend developer, combining years of experience in fashion, lifestyle, and tech with a growing technical practice. I focus on translating strong visual concepts into scalable, well-structured interfaces using HTML, CSS, JavaScript, SCSS, and TypeScript, and I’m especially drawn to Tailwind and design systems.";
+
     aboutMeText.className =   "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
 
 
