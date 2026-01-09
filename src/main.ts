@@ -5,24 +5,26 @@ const title = document.getElementById("title") as HTMLHeadElement;
 const role = document.getElementById("role") as HTMLHeadingElement | null;
 const newTitle = document.getElementById("newTitle") as HTMLHeadElement;
 
-const workGifDiv = document.getElementById("workGifDiv") as HTMLDivElement | null;
-const aboutMeDiv = document.getElementById("aboutMeDiv") as HTMLDivElement | null;
-const mainSection = document.getElementById("mainSection") as HTMLDivElement | null;
-const contactMe = document.getElementById("contactMe") as HTMLFormElement
-const linkedin = document.getElementById("linkedin") as HTMLElement | null
-const github = document.getElementById("github") as HTMLElement | null
-const phone = document.getElementById("phone") as HTMLParagraphElement
+const workGifDiv = document.getElementById(
+  "workGifDiv"
+) as HTMLDivElement | null;
+const aboutMeDiv = document.getElementById(
+  "aboutMeDiv"
+) as HTMLDivElement | null;
+const mainSection = document.getElementById(
+  "mainSection"
+) as HTMLDivElement | null;
+const contactMe = document.getElementById("contactMe") as HTMLFormElement;
+const linkedin = document.getElementById("linkedin") as HTMLElement | null;
+const github = document.getElementById("github") as HTMLElement | null;
+const phone = document.getElementById("phone") as HTMLParagraphElement;
 const roleHint = document.getElementById("roleHint");
 
- 
- 
 const MOVE_TITLE_AFTER_MS = 1000;
 const ROLE_INTERVAL_MS = 1500;
 const FADE_MS = 500;
 
 let roleIntervalId: number | null = null;
-
-
 
 function startRoleLoop() {
   if (!role) return;
@@ -41,22 +43,17 @@ function startRoleLoop() {
 
       role.textContent = roles[index];
       role.classList.remove("opacity-0");
-     
     }, FADE_MS);
   }, ROLE_INTERVAL_MS);
 }
 
-
 function intro() {
   setTimeout(() => {
-    title.classList.add("hidden")
-    newTitle.classList.remove("hidden")
-  
+    title.classList.add("hidden");
+    newTitle.classList.remove("hidden");
 
-   
-    startRoleLoop();              
+    startRoleLoop();
     role?.classList.remove("opacity-0"); // fade in
-   
 
     roleHint?.classList.remove("opacity-0");
   }, MOVE_TITLE_AFTER_MS);
@@ -68,19 +65,16 @@ function finalSlide() {
     return;
   }
 
-
-
   role.addEventListener("click", () => {
     console.log("CLICK på role!");
 
-    
     if (roleIntervalId !== null) {
       clearInterval(roleIntervalId);
       roleIntervalId = null;
     }
 
     role.remove();
- roleHint?.remove();
+    roleHint?.remove();
 
     if (!workGifDiv) {
       console.log("workGifDiv saknas");
@@ -95,77 +89,65 @@ function finalSlide() {
       return;
     }
 
-    const navMenu = document.getElementById("navMenu") as HTMLMenuElement
-    navMenu.classList.remove("hidden")
-    navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto"
+    const navMenu = document.getElementById("navMenu") as HTMLMenuElement;
+    navMenu.classList.remove("hidden");
+    navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto";
 
     const workGif = document.createElement("img");
     workGif.src = "/ezgif-13c38f509407bf.gif";
-    workGif.className = "block w-full h-auto"  ;
+    workGif.className = "block w-full h-auto";
     workGif.onload = () => console.log("GIF laddad");
     workGif.onerror = () => console.log("GIF kunde inte laddas");
 
-    workGifDiv.className = "w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] mx-auto lg:mx-0";
-    ;
-    ;
+    workGifDiv.className =
+      "w-full max-w-[360px] sm:max-w-[420px] md:max-w-[520px] mx-auto lg:mx-0";
     workGifDiv.innerHTML = "";
     workGifDiv.appendChild(workGif);
-
-    
 
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
       "I'm a conceptual art director turned frontend developer, combining years of experience in fashion, lifestyle, and tech with a growing technical practice. I focus on translating strong visual concepts into scalable, well-structured interfaces using HTML, CSS, JavaScript, SCSS, and TypeScript, and I’m especially drawn to Tailwind and design systems.";
 
-    aboutMeText.className =   "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
-
-
-    ;
+    aboutMeText.className =
+      "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
 
     aboutMeDiv.innerHTML = "";
     aboutMeDiv.appendChild(aboutMeText);
 
-    contactMe?.classList.remove("hidden")
+    contactMe?.classList.remove("hidden");
 
     emailjs.init("oeL4wbVK6MtNg_Or5");
 
     contactMe.addEventListener("submit", async (e) => {
       e.preventDefault();
       try {
-        await emailjs.sendForm(
-          "lo_eklof",
-          "template_syx72mo",
-          contactMe
-        );
-    
+        await emailjs.sendForm("lo_eklof", "template_syx72mo", contactMe);
+
         alert("Skickat!");
         contactMe.reset();
       } catch (err) {
         console.error(err);
         alert("Något gick fel");
       }
-      
-      
-    })
-github?.classList.remove("hidden")
-linkedin?.classList.remove("hidden")
-phone.classList.remove("hidden")
+    });
+    github?.classList.remove("hidden");
+    linkedin?.classList.remove("hidden");
+    phone.classList.remove("hidden");
 
-
- 
     mainSection.appendChild(workGifDiv);
     mainSection.appendChild(aboutMeDiv);
-    mainSection.appendChild(contactMe)
-    
+    mainSection.appendChild(contactMe);
   });
 }
 
-function openModal(title:any, contentHtml:any) {
+function openModal(title: any, contentHtml: any) {
   const overlay = document.createElement("div");
-  overlay.className = "fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4";
-  
-  const modal = document.createElement("div")
-  modal.className = "relative w-full max-w-xl bg-red-600 border-4 border-black shadow-[10px_10px_0_0_#000]";
+  overlay.className =
+    "fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4";
+
+  const modal = document.createElement("div");
+  modal.className =
+    "relative w-full max-w-xl bg-red-600 border-4 border-black shadow-[10px_10px_0_0_#000]";
 
   modal.innerHTML = `
     <button class="absolute top-4 right-4 w-10 h-10 bg-white border-4 border-black font-black">✕</button>
@@ -173,17 +155,15 @@ function openModal(title:any, contentHtml:any) {
       <h2 class="text-4xl font-extrabold mb-4">${title}</h2>
       ${contentHtml}
     </div>
-  `
+  `;
   overlay.appendChild(modal);
   document.body.appendChild(overlay);
   const close = () => overlay.remove();
 
   modal.querySelector("button")?.addEventListener("click", close);
   overlay.addEventListener("click", (e) => {
-    if(e.target === overlay) close(); 
+    if (e.target === overlay) close();
   });
-
-
 }
 
 const projectsHtml = `
@@ -245,8 +225,8 @@ const educationHtml = `
 `;
 
 document.getElementById("projectsDiv")?.addEventListener("click", () => {
-  openModal("PROJECTS", projectsHtml)
-})
+  openModal("PROJECTS", projectsHtml);
+});
 document.getElementById("workDiv")?.addEventListener("click", () => {
   openModal("WORK EXPERIENCE", workHtml);
 });
@@ -255,10 +235,5 @@ document.getElementById("educationDiv")?.addEventListener("click", () => {
   openModal("EDUCATION", educationHtml);
 });
 
-
-
 finalSlide();
 intro();
-
-
-
