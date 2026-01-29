@@ -95,7 +95,7 @@ function finalSlide() {
     navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto";
 
     const workGif = document.createElement("img");
-    workGif.src = "/giffycanvas3.gif";
+    workGif.src = "/public/giffycanvas3.gif";
     workGif.className = "block w-full h-auto";
     workGif.onload = () => console.log("GIF laddad");
     workGif.onerror = () => console.log("GIF kunde inte laddas");
