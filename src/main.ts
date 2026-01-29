@@ -1,5 +1,6 @@
 import "./style.css";
 import emailjs from "@emailjs/browser";
+import type { Skill } from "./utils";
 
 const title = document.getElementById("title") as HTMLHeadElement;
 const role = document.getElementById("role") as HTMLHeadingElement | null;
@@ -20,6 +21,7 @@ const github = document.getElementById("github") as HTMLElement | null;
 const phone = document.getElementById("phone") as HTMLParagraphElement;
 const roleHint = document.getElementById("roleHint");
 const roleDiv = document.getElementById("roleDiv")
+
 
 const MOVE_TITLE_AFTER_MS = 1000;
 const ROLE_INTERVAL_MS = 1500;
@@ -242,6 +244,31 @@ const educationHtml = `
   </ul>
 `;
 
+const skills: Skill[] = [
+
+  {name: 'TypeScript'},
+  {name: 'JavaScript'},
+  {name: 'CSS'},
+  {name: 'SCSS'},
+  {name: 'Tailwind'},
+  {name: 'Git'},
+  {name: 'HTML'},
+  {name: 'Figma'},
+  {name: 'Adobe inDesign'},
+  {name: 'Adobe Photoshop'},
+  {name: 'Concepting'},
+  {name: 'Scrum'},
+  {name: 'MongoDB'},
+  {name: 'Postman'},
+  {name: 'Art Direction'}
+ 
+]
+
+let skillsHtml = 
+`<div class="flex flex-wrap justify-center gap-2">
+${skills.map(skill =>`<span class="border-2 bg-white text-sm font-bold border-black px-3 py-1">${skill.name}</span>`).join('')}
+</div>
+`
 document.getElementById("projectsDiv")?.addEventListener("click", () => {
   openModal("PROJECTS", projectsHtml);
 });
@@ -251,6 +278,10 @@ document.getElementById("workDiv")?.addEventListener("click", () => {
 
 document.getElementById("educationDiv")?.addEventListener("click", () => {
   openModal("EDUCATION", educationHtml);
+});
+
+document.getElementById("skillsDiv")?.addEventListener("click", () => {
+  openModal("SKILLS", skillsHtml)
 });
 
 finalSlide();
