@@ -19,6 +19,7 @@ const linkedin = document.getElementById("linkedin") as HTMLElement | null;
 const github = document.getElementById("github") as HTMLElement | null;
 const phone = document.getElementById("phone") as HTMLParagraphElement;
 const roleHint = document.getElementById("roleHint");
+const roleDiv = document.getElementById("roleDiv")
 
 const MOVE_TITLE_AFTER_MS = 1000;
 const ROLE_INTERVAL_MS = 1500;
@@ -65,7 +66,7 @@ function finalSlide() {
     return;
   }
 
-  role.addEventListener("click", () => {
+  roleDiv?.addEventListener("click", () => {
     console.log("CLICK på role!");
 
     if (roleIntervalId !== null) {
@@ -94,7 +95,7 @@ function finalSlide() {
     navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto";
 
     const workGif = document.createElement("img");
-    workGif.src = "/ezgif-13c38f509407bf.gif";
+    workGif.src = "/giffycanvas3.gif";
     workGif.className = "block w-full h-auto";
     workGif.onload = () => console.log("GIF laddad");
     workGif.onerror = () => console.log("GIF kunde inte laddas");
