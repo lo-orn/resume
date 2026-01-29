@@ -110,7 +110,7 @@ function finalSlide() {
 
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
-      "I'm studying frontend development, learning to translate visual concepts into working code. Background in art direction for fashion and tech. Now I want to focus on building things people can actually use.";
+      "I'm currently studying frontend development, learning to translate visual concepts into working code. Background in art direction for fashion and tech. Now I want to focus on building things people can actually use.";
 
     aboutMeText.className =
       "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
