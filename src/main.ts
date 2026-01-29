@@ -66,6 +66,7 @@ function finalSlide() {
     return;
   }
 
+  
   roleDiv?.addEventListener("click", () => {
     console.log("CLICK på role!");
 
@@ -90,6 +91,8 @@ function finalSlide() {
       return;
     }
 
+    
+
     const navMenu = document.getElementById("navMenu") as HTMLMenuElement;
     navMenu.classList.remove("hidden");
     navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto";
@@ -107,7 +110,7 @@ function finalSlide() {
 
     const aboutMeText = document.createElement("p");
     aboutMeText.textContent =
-      "I'm a conceptual art director turned frontend developer, combining years of experience in fashion, lifestyle, and tech with a growing technical practice. I focus on translating strong visual concepts into scalable, well-structured interfaces using HTML, CSS, JavaScript, SCSS, and TypeScript, and I’m especially drawn to Tailwind and design systems.";
+      "I'm studying frontend development, learning to translate visual concepts into working code. Background in art direction for fashion and tech—now I'm focused on building things people can actually use.I'm a conceptual art director turned frontend developer, combining years of experience in fashion, lifestyle, and tech with a growing technical practice. I focus on translating strong visual concepts into scalable, well-structured interfaces using HTML, CSS, JavaScript, SCSS, and TypeScript, and I’m especially drawn to Tailwind and design systems.";
 
     aboutMeText.className =
       "mt-6 text-white font-medium tracking-tight leading-relaxed text-sm sm:text-base w-full sm:min-w-[280px] md:min-w-[320px] max-w-prose text-left break-words hyphens-auto";
