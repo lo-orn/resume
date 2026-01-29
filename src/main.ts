@@ -194,6 +194,21 @@ const projectsHtml = `
           class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
           GitHub
         </a>
+        
+      </div>
+
+       <div class="border-4 border-black bg-white p-4 shadow-[6px_6px_0_0_#000]">
+      <h3 class="text-xl font-extrabold">Webshop</h3>
+      <div class="mt-3 flex gap-4">
+        <a href="https://theiconicseries.netlify.app/" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          Live
+        </a>
+        <a href="https://github.com/lo-orn/webshop" target="_blank" rel="noreferrer"
+          class="border-4 border-black px-4 py-2 font-bold shadow-[3px_3px_0_0_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none">
+          GitHub
+        </a>
+        
       </div>
     </div>
   </div>
