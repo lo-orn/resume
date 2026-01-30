@@ -9,7 +9,7 @@ export const skills: Skill[] = [
   {name: 'CSS'},
   {name: 'SCSS'},
   {name: 'Tailwind'},
-  {name: 'Git'},
+  {name: 'GitHub'},
   {name: 'HTML'},
   {name: 'Figma'},
   {name: 'Adobe inDesign'},
