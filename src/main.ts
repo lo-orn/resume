@@ -1,6 +1,6 @@
 import "./style.css";
 import emailjs from "@emailjs/browser";
-import { skills } from "./utils";
+import { skills } from "./utils/utils";
 
 const title = document.getElementById("title") as HTMLHeadElement;
 const role = document.getElementById("role") as HTMLHeadingElement | null;
@@ -16,11 +16,9 @@ const mainSection = document.getElementById(
   "mainSection"
 ) as HTMLDivElement | null;
 const contactMe = document.getElementById("contactMe") as HTMLFormElement;
-const linkedin = document.getElementById("linkedin") as HTMLElement | null;
-const github = document.getElementById("github") as HTMLElement | null;
-const phone = document.getElementById("phone") as HTMLParagraphElement;
 const roleHint = document.getElementById("roleHint");
 const roleDiv = document.getElementById("roleDiv");
+const footer = document.getElementById("footer") as HTMLElement | null;
 
 const MOVE_TITLE_AFTER_MS = 1000;
 const ROLE_INTERVAL_MS = 1500;
@@ -53,6 +51,7 @@ function intro() {
   setTimeout(() => {
     title.classList.add("hidden");
     newTitle.classList.remove("hidden");
+    
 
     startRoleLoop();
     role?.classList.remove("opacity-0"); // fade in
@@ -93,7 +92,8 @@ function finalSlide() {
 
     const navMenu = document.getElementById("navMenu") as HTMLMenuElement;
     navMenu.classList.remove("hidden");
-    navMenu.className = "flex pl-2 gap-3 items-center text-white lg:ml-auto";
+    newTitle.classList.add("animate")
+  
 
     const workGif = document.createElement("img");
     workGif.src = "./giffycanvas3.gif";
@@ -132,9 +132,9 @@ function finalSlide() {
         alert("Något gick fel");
       }
     });
-    github?.classList.remove("hidden");
-    linkedin?.classList.remove("hidden");
-    phone.classList.remove("hidden");
+    
+    footer?.classList.remove("hidden")
+    footer?.classList.add("flex")
 
     mainSection.appendChild(workGifDiv);
     mainSection.appendChild(aboutMeDiv);

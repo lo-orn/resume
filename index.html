@@ -20,23 +20,25 @@
       >
         <h2
           id="newTitle"
-          n
-          class="hidden text-2xl sm:text-3xl font-medium text-white leading-none"
+          class="newTitle hidden text-2xl sm:text-3xl font-medium text-white leading-none"
         >
           Lo Eklöf Örnestål
         </h2>
 
-        <nav id="navMenu" class="hidden hover:cursor-pointer">
-          <div id="projectsDiv">
+        <nav
+          id="navMenu"
+          class="test-class hidden hover:cursor-pointer flex pl-2 gap-3 items-center text-white text-sm sm:text-base sm:gap-4 lg:ml-auto"
+        >
+          <div id="projectsDiv" class="projectsNav">
             <h2 class="hover:cursor-pointer">Projects</h2>
           </div>
-          <div id="educationDiv" class="">
+          <div id="educationDiv" class="educationNav">
             <h2 class="hover:cursor-pointer">Education</h2>
           </div>
-          <div id="workDiv" class="">
+          <div id="workDiv" class="workNav">
             <h2 class="hover:cursor-pointer">Work</h2>
           </div>
-          <div id="skillsDiv" class="">
+          <div id="skillsDiv" class="skillsNav">
             <h2 class="hover:cursor-pointer">Skills</h2>
           </div>
         </nav>
@@ -96,29 +98,41 @@
           </div>
         </section>
       </main>
-      <footer id="footer" class="mt-10 flex justify-center gap-5">
-        <a
-          id="github"
-          class="hidden text-white text-sm hover:text-yellow-300"
-          href="https://github.com/lo-orn"
-          target="_blank"
-          >GitHub</a
-        >
-        <a
-          id="linkedin"
-          class="hidden text-white text-sm hover:text-yellow-300"
-          href="https://www.linkedin.com/in/lovisa-ornestal/"
-          target="_blank"
-          >LinkedIn</a
-        >
+      <footer id="footer" class="hidden mt-10 flex-wrap justify-center gap-5">
+        <div class="flex gap-5">
+          <a
+            id="github"
+            class="text-white text-sm hover:text-yellow-300"
+            href="https://github.com/lo-orn"
+            target="_blank"
+            >GitHub</a
+          >
+          <a
+            id="linkedin"
+            class="text-white text-sm hover:text-yellow-300"
+            href="https://www.linkedin.com/in/lovisa-ornestal/"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </div>
 
-        <a
-          id="phone"
-          class="hidden text-white text-sm hover:text-yellow-300"
-          href="tel:+46763942189"
-        >
-          +46 76 39 42189
-        </a>
+        <div class="flex gap-5 text-xs">
+          <a
+            id="phone"
+            class="text-white text-sm hover:text-yellow-300"
+            href="tel:+46763942189"
+          >
+            +46 76 39 42189
+          </a>
+
+          <a
+            id="email"
+            class="text-white text-sm hover:text-yellow-300"
+            href="lovisaornestal@gmail.com"
+            target="_blank"
+            >lovisaornestal@gmail.com</a
+          >
+        </div>
       </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
