@@ -18,6 +18,8 @@ export const skills: Skill[] = [
   {name: 'Scrum'},
   {name: 'MongoDB'},
   {name: 'Postman'},
-  {name: 'Art Direction'}
+  {name: 'Art Direction'},
+  {name: 'NodeJS'},
+  {name: 'React'}
  
 ]
