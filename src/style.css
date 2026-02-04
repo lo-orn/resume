@@ -53,13 +53,24 @@ h1 {
   
   }
   
+}
+
+@media (max-width: 375px) {
   .newTitle.animate::after {
-    transform: translateX(250px);
-    width:120%;
-    background: blue;
-  
+    transform: translateX(140px);
+    width: 160%;
   }
 }
+
+@media (min-width: 376px) and (max-width: 639px) {
+  .newTitle.animate::after {
+    transform: translateX(180px);
+    width: 130%;
+  }
+}
+
+
+
 @media screen and (min-width: 640px) {
 
   .projectsNav::after, 
