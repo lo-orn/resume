@@ -64,7 +64,7 @@ h1 {
 
 @media (min-width: 376px) and (max-width: 639px) {
   .newTitle.animate::after {
-    transform: translateX(180px);
+    transform: translateX(150px);
     width: 150%;
   }
 }
